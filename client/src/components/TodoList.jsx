@@ -10,29 +10,29 @@ const TodoList = ({ todos, deleteTodo, editTodo }) => {
           <h5 className="text-center">{todo.title}</h5>
           <p className="text-center">{todo.description}</p>
           <div className="d-block justify-content-between align-items-center">
-            <div className="d-flex justify-content-around">
-              <p className="" style={{ fontSize: "12px" }}>
+            <div className="d-flex flex-start justify-content-around">
+              <p className="text-start" style={{ fontSize: "12px" }}>
                 <strong>Status:</strong> {todo.status}
               </p>
-              <p style={{ fontSize: "12px" }}>
+              <p className="text-start" style={{ fontSize: "12px" }}>
                 <strong>Priority:</strong> {todo.priority}
               </p>
             </div>
             <div className="d-flex justify-content-around">
               {todo.deadline && (
-                <p style={{ fontSize: "12px" }}>
+                <p className="text-start" style={{ fontSize: "12px" }}>
                   <strong>Deadline:</strong>{" "}
                   {new Date(todo.deadline).toLocaleDateString()}
                 </p>
               )}
-              <p style={{ fontSize: "12px" }}>
+              <p className="text-start" style={{ fontSize: "12px" }}>
                 <small>
                   <strong>Created At:</strong>{" "}
                   {new Date(todo.createdAt).toLocaleString()}
                 </small>
               </p>
             </div>
-            <div className="d-flex justify-content-around">
+            <div className="d-flex">
               <button
                 className="btn btn-warning btn-sm me-2"
                 onClick={() => editTodo(todo)}>
