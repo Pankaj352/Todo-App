@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const API_BASE_URL = "http://localhost:7878/api/todos";
+const API_BASE_URL = "https://todo-app-que8.onrender.com/api/todos";
 
 export const getTodos = async () => {
   try {
