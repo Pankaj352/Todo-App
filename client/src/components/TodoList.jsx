@@ -10,12 +10,24 @@ const TodoList = ({ todos, deleteTodo, editTodo }) => {
           <div>
             <h5>{todo.title}</h5>
             <p>{todo.description}</p>
-            <p ><strong>Status:</strong> {todo.status}</p>
-            <p><strong>Priority:</strong> {todo.priority}</p>
+            <p className="" style={{ fontSize: "10px" }}>
+              <strong>Status:</strong> {todo.status}
+            </p>
+            <p style={{ fontSize: "10px" }}>
+              <strong>Priority:</strong> {todo.priority}
+            </p>
             {todo.deadline && (
-              <p><strong>Deadline:</strong> {new Date(todo.deadline).toLocaleDateString()}</p>
+              <p style={{ fontSize: "10px" }}>
+                <strong>Deadline:</strong>{" "}
+                {new Date(todo.deadline).toLocaleDateString()}
+              </p>
             )}
-            <p><small><strong>Created At:</strong> {new Date(todo.createdAt).toLocaleString()}</small></p>
+            <p>
+              <small>
+                <strong>Created At:</strong>{" "}
+                {new Date(todo.createdAt).toLocaleString()}
+              </small>
+            </p>
           </div>
           <div>
             <button
