@@ -8,15 +8,17 @@ const TodoList = ({ todos, deleteTodo, editTodo }) => {
           key={todo._id}
           className="list-group-item  shadow-sm p-3 mb-3 bg-body-tertiary rounded">
           <h5 className="text-center">{todo.title}</h5>
-          <div className="d-flex justify-content-between align-items-center">
-            <div>
-              <p>{todo.description}</p>
+          <p className="text-center">{todo.description}</p>
+          <div className="d-block justify-content-between align-items-center">
+            <div className="d-flex justify-content-around">
               <p className="" style={{ fontSize: "12px" }}>
                 <strong>Status:</strong> {todo.status}
               </p>
               <p style={{ fontSize: "12px" }}>
                 <strong>Priority:</strong> {todo.priority}
               </p>
+            </div>
+            <div className="d-flex justify-content-around">
               {todo.deadline && (
                 <p style={{ fontSize: "12px" }}>
                   <strong>Deadline:</strong>{" "}
@@ -30,7 +32,7 @@ const TodoList = ({ todos, deleteTodo, editTodo }) => {
                 </small>
               </p>
             </div>
-            <div>
+            <div className="d-flex justify-content-around">
               <button
                 className="btn btn-warning btn-sm me-2"
                 onClick={() => editTodo(todo)}>
