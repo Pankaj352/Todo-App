@@ -6,44 +6,40 @@ const TodoList = ({ todos, deleteTodo, editTodo }) => {
       {todos.map((todo) => (
         <li
           key={todo._id}
-          className="list-group-item  shadow-sm p-3 mb-3 bg-body-tertiary rounded">
-          <h5 className="text-center">{todo.title}</h5>
-          <p className="text-center">{todo.description}</p>
-          <div className="d-block justify-content-between align-items-center">
-            <div className="d-flex flex-start justify-content-around">
-              <p className="text-start" style={{ fontSize: "12px" }}>
-                <strong>Status:</strong> {todo.status}
+          className="list-group-item d-flex justify-content-between align-items-center shadow-sm p-3 mb-3 bg-body-tertiary rounded">
+          <div>
+            <h5 className="text-center">{todo.title}</h5>
+            <p>{todo.description}</p>
+            <p className="" style={{ fontSize: "12px" }}>
+              <strong>Status:</strong> {todo.status}
+            </p>
+            <p style={{ fontSize: "12px" }}>
+              <strong>Priority:</strong> {todo.priority}
+            </p>
+            {todo.deadline && (
+              <p style={{ fontSize: "12px" }}>
+                <strong>Deadline:</strong>{" "}
+                {new Date(todo.deadline).toLocaleDateString()}
               </p>
-              <p className="text-start" style={{ fontSize: "12px" }}>
-                <strong>Priority:</strong> {todo.priority}
-              </p>
-            </div>
-            <div className="d-flex justify-content-around">
-              {todo.deadline && (
-                <p className="text-start" style={{ fontSize: "12px" }}>
-                  <strong>Deadline:</strong>{" "}
-                  {new Date(todo.deadline).toLocaleDateString()}
-                </p>
-              )}
-              <p className="text-start" style={{ fontSize: "12px" }}>
-                <small>
-                  <strong>Created At:</strong>{" "}
-                  {new Date(todo.createdAt).toLocaleString()}
-                </small>
-              </p>
-            </div>
-            <div className="d-flex">
-              <button
-                className="btn btn-warning btn-sm me-2"
-                onClick={() => editTodo(todo)}>
-                Edit
-              </button>
-              <button
-                className="btn btn-danger btn-sm"
-                onClick={() => deleteTodo(todo._id)}>
-                Delete
-              </button>
-            </div>
+            )}
+            <p style={{ fontSize: "12px" }}>
+              <small>
+                <strong>Created At:</strong>{" "}
+                {new Date(todo.createdAt).toLocaleString()}
+              </small>
+            </p>
+          </div>
+          <div>
+            <button
+              className="btn btn-warning btn-sm me-2"
+              onClick={() => editTodo(todo)}>
+              Edit
+            </button>
+            <button
+              className="btn btn-danger btn-sm"
+              onClick={() => deleteTodo(todo._id)}>
+              Delete
+            </button>
           </div>
         </li>
       ))}
