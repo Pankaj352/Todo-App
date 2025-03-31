@@ -8,7 +8,7 @@ const TodoList = ({ todos, deleteTodo, editTodo }) => {
           key={todo._id}
           className="list-group-item d-flex justify-content-between align-items-center shadow-sm p-3 mb-3 bg-body-tertiary rounded">
           <div>
-            <h5>{todo.title}</h5>
+            <h5 className="text-center">{todo.title}</h5>
             <p>{todo.description}</p>
             <p className="" style={{ fontSize: "10px" }}>
               <strong>Status:</strong> {todo.status}
