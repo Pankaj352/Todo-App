@@ -1,11 +1,17 @@
+:root {
+  --bs-primary: #007BFF;
+  --bs-secondary: #17A2B8;
+  --bs-bg: #F8F9FA;
+  --bs-text: #212529;
+  --bs-accent: #FFC107;
+}
+
+
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   font-family: "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell",
     "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
-}
-
-body {
-  background-color: lightgray;
 }

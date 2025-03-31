@@ -9,7 +9,7 @@ function App() {
   const [editingTodo, setEditingTodo] = useState(null);
   const [searchTerm, setSearchTerm] = useState("");
   const [currentPage, setCurrentPage] = useState(1);
-  const todosPerPage = 5;
+  const todosPerPage = 2;
 
   useEffect(() => {
     fetchTodos();
