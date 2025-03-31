@@ -63,45 +63,54 @@ function App() {
   const currentTodos = filteredTodos.slice(indexOfFirstTodo, indexOfLastTodo);
 
   return (
-    <div className="container">
-      <h1 className="text-center mb-4">Todo App</h1>
-      <div className="row">
-        <div className="col-md-6">
-          <TodoForm onSubmit={handleAddTodo} editingTodo={editingTodo} />
+    <>
+      <nav class="navbar bg-body-tertiary">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#">
+            Todolist App
+          </a>
         </div>
-        <div className="col-md-6">
-          <input
-            type="text"
-            className="form-control mb-3"
-            placeholder="Search tasks..."
-            value={searchTerm}
-            onChange={(e) => setSearchTerm(e.target.value)}
-          />
-          <TodoList
-            todos={currentTodos}
-            deleteTodo={handleDeleteTodo}
-            editTodo={handleEditTodo}
-          />
-          {/* Pagination Buttons */}
-          <div className="d-flex justify-content-center mt-3">
-            {Array.from(
-              { length: Math.ceil(filteredTodos.length / todosPerPage) },
-              (_, i) => (
-                <button
-                  key={i}
-                  className={`btn btn-sm mx-1 ${
-                    currentPage === i + 1 ? "btn-primary" : "btn-outline-primary"
-                  }`}
-                  onClick={() => setCurrentPage(i + 1)}
-                >
-                  {i + 1}
-                </button>
-              )
-            )}
+      </nav>
+      <div className="container">
+        <div className="row">
+          <div className="col-md-6">
+            <TodoForm onSubmit={handleAddTodo} editingTodo={editingTodo} />
+          </div>
+          <div className="col-md-6">
+            <input
+              type="text"
+              className="form-control mb-3"
+              placeholder="Search tasks..."
+              value={searchTerm}
+              onChange={(e) => setSearchTerm(e.target.value)}
+            />
+            <TodoList
+              todos={currentTodos}
+              deleteTodo={handleDeleteTodo}
+              editTodo={handleEditTodo}
+            />
+            {/* Pagination Buttons */}
+            <div className="d-flex justify-content-center mt-3">
+              {Array.from(
+                { length: Math.ceil(filteredTodos.length / todosPerPage) },
+                (_, i) => (
+                  <button
+                    key={i}
+                    className={`btn btn-sm mx-1 ${
+                      currentPage === i + 1
+                        ? "btn-primary"
+                        : "btn-outline-primary"
+                    }`}
+                    onClick={() => setCurrentPage(i + 1)}>
+                    {i + 1}
+                  </button>
+                )
+              )}
+            </div>
           </div>
         </div>
       </div>
-    </div>
+    </>
   );
 }
 
